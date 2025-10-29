@@ -7,7 +7,7 @@ const brandToFilename = {
   'BMW': 'bmw.png',
   'Mercedes-Benz': 'benz.png',
   'Audi': 'audi.png',
-  'Jaguar': 'Jaguar.png',
+  'Jaguar': 'jaguar.png',
   'Lamborghini': 'lambo.png',
   'Porsche': 'porsche.png',
   'Toyota': 'toyota.png',
