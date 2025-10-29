@@ -240,7 +240,7 @@ export const bmwModelsSeriesContent = {
   },
 }
 
-export default function BMWModelsSeriesUnit({ onNavigate, onBackToUnits }) {
+export default function BMWModelsSeriesUnit({ onNavigate, onBackToUnits, onNextUnit }) {
   const [openKey, setOpenKey] = useState(null)
   const [answers, setAnswers] = useState({})
 
@@ -410,7 +410,7 @@ export default function BMWModelsSeriesUnit({ onNavigate, onBackToUnits }) {
         {/* FOOTER */}
         <div className="mt-6 flex flex-col gap-3">
           <button
-            onClick={() => console.log('Navigate: Engine & Power')}
+            onClick={onNextUnit}
             className="w-full rounded-xl px-4 py-3 text-sm font-semibold"
             style={{ backgroundColor: COLORS.accent, color: COLORS.background, boxShadow: '0 6px 16px rgba(0,0,0,0.5)' }}
           >

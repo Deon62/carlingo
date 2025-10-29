@@ -155,6 +155,7 @@ export default function App() {
           >
             <BMWModels
               onBackToUnits={() => setScreen('units')}
+              onNextUnit={() => setScreen('bmwEnginePower')}
               onNavigate={(target) => {
                 if (target === 'home') setScreen('home')
                 else if (target === 'ai') setScreen('ai')
@@ -197,6 +198,7 @@ export default function App() {
           >
             <BMWEnginePower
               onBackToUnits={() => setScreen('units')}
+              onNextUnit={() => setScreen('bmwDesignAerodynamics')}
               onNavigate={(target) => {
                 if (target === 'home') setScreen('home')
                 else if (target === 'ai') setScreen('ai')
