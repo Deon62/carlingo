@@ -78,7 +78,14 @@ export default function App() {
             transition={{ duration: 0.32, ease: 'easeOut' }}
             className="h-full"
           >
-            <Profile />
+            <Profile
+              onNavigate={(target) => {
+                if (target === 'home') setScreen('home')
+                else if (target === 'units') setScreen('units')
+                else if (target === 'brands') setScreen('brands')
+                else if (target === 'profile') setScreen('profile')
+              }}
+            />
           </motion.div>
         )}
       </AnimatePresence>
