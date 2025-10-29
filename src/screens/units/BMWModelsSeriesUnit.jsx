@@ -16,7 +16,7 @@ const COLORS = {
 // Content is data-driven so it can be edited/swapped easily later
 export const bmwModelsSeriesContent = {
   hero: {
-    title: 'BMW — Models & Series',
+    title: 'BMW  Models & Series',
     subtitle: 'Understand the lineup: series, SUVs, roadsters, EVs, and the M division.',
     intro:
       'BMW’s naming logic is simple and powerful: Series 1–8 for cars by size/class; X for SUVs and crossovers; Z for roadsters; i for electrified vehicles; and M for motorsport-tuned performance. The range balances luxury, sport, and sustainability.',
