@@ -5,7 +5,7 @@ export default function BMWOverview({ onNavigate, onBackToUnits, onNextUnit }) {
   const [answers, setAnswers] = useState({})
 
   const setAnswer = (qKey, option) => {
-    setAnswers((prev) => ({ ...prev, [qKey]: option }))
+    setAnswers(prev => ({ ...prev, [qKey]: option }))
   }
 
   const isSelected = (qKey, option) => answers[qKey] === option
@@ -18,13 +18,13 @@ export default function BMWOverview({ onNavigate, onBackToUnits, onNextUnit }) {
   const getOptionClasses = (qKey, option) => {
     const selected = isSelected(qKey, option)
     const isCorrect = correct[qKey] === option
-    const base = 'w-full rounded-xl border px-4 py-3 text-left text-sm transition-colors'
-    if (!selected) return base + ' border-[#1F1F1F] bg-[#111111] text-white hover:border-[#D4AF37]/40'
-    if (isCorrect) return base + ' border-[#FFD700] bg-[#111111] text-white'
-    return base + ' border-[#B22222] bg-[#111111] text-white'
+    const base = 'w-full rounded-xl border px-5 py-3.5 text-left text-sm transition-colors duration-200'
+    if (!selected) return `${base} border-[#1F1F1F] bg-[#111111] text-white hover:border-[#D4AF37]/40`
+    if (isCorrect) return `${base} border-[#FFD700] bg-[#111111]/90 text-white`
+    return `${base} border-[#B22222] bg-[#111111]/90 text-white`
   }
 
-  const [activeSection, setActiveSection] = useState(null) // 'origins' | 'rebirth' | 'modern'
+  const [activeSection, setActiveSection] = useState(null)
 
   const toggleSection = (key) => {
     setActiveSection((prev) => (prev === key ? key : key)) // single-open; tapping new opens it
@@ -32,13 +32,13 @@ export default function BMWOverview({ onNavigate, onBackToUnits, onNextUnit }) {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      <div className="mx-auto w-full max-w-3xl px-5 pt-6 pb-24">
+      <div className="mx-auto w-full max-w-3xl px-6 pt-8 pb-32">
         {/* (A) Hero Section */}
         <section className="text-center">
-          <img src={bmwLogo} alt="BMW" className="mx-auto h-16 w-16 object-contain" />
-          <h1 className="mt-3 text-2xl font-semibold">BMW  Brand Overview</h1>
-          <p className="mt-1 text-sm text-[#B0B0B0]">The Ultimate Driving Machine</p>
-          <p className="mt-4 text-sm text-[#B0B0B0]">
+          <img src={bmwLogo} alt="BMW" className="mx-auto h-20 w-20 object-contain" />
+          <h1 className="mt-4 text-2xl font-semibold tracking-tight">BMW Brand Overview</h1>
+          <p className="mt-2 text-base font-medium text-[#D4AF37]">The Ultimate Driving Machine</p>
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-[#B0B0B0]">
             Bayerische Motoren Werke AG, better known as BMW, is a German luxury automobile manufacturer founded in 1916.
             Renowned for its engineering excellence, innovation, and signature driving experience, BMW has become
             synonymous with performance and prestige worldwide.
@@ -94,7 +94,7 @@ export default function BMWOverview({ onNavigate, onBackToUnits, onNextUnit }) {
           <h2 className="text-sm font-medium tracking-wide text-[#D4AF37]">Core Identity Highlights</h2>
           <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
             {[
-              { title: 'Slogan', value: '“The Ultimate Driving Machine”' },
+              { title: 'Slogan', value: 'The Ultimate Driving Machine' },
               { title: 'Headquarters', value: 'Munich, Germany' },
               { title: 'Founded', value: '1916' },
               { title: 'Parent Company', value: 'BMW Group (includes MINI, Rolls-Royce)' },
@@ -114,7 +114,7 @@ export default function BMWOverview({ onNavigate, onBackToUnits, onNextUnit }) {
         <section>
           <h2 className="text-sm font-medium tracking-wide text-[#D4AF37]">Brand Philosophy</h2>
           <blockquote className="mt-3 rounded-2xl border border-[#D4AF37]/40 bg-[#111111] p-4 text-sm text-white">
-            “BMW’s philosophy blends performance with precision — cars that excite both the driver and the engineer.”
+            BMW’s philosophy blends performance with precision  cars that excite both the driver and the engineer.
           </blockquote>
           <p className="mt-3 text-sm text-[#B0B0B0]">
             The brand’s DNA centers around innovation, luxury, and driving pleasure. From the responsive handling of the
@@ -144,27 +144,43 @@ export default function BMWOverview({ onNavigate, onBackToUnits, onNextUnit }) {
         </section>
 
         {/* Divider */}
-        <div className="my-6 h-px w-full bg-[#1F1F1F]" />
+        <div className="my-8 h-px w-full bg-[#1F1F1F]" />
 
         {/* (F) Knowledge Check */}
         <section>
-          <h2 className="text-sm font-medium tracking-wide text-[#D4AF37]">Knowledge Check</h2>
-          <div className="mt-3 space-y-4">
+          <h2 className="text-sm font-medium uppercase tracking-wider text-[#D4AF37] mb-4">Knowledge Check</h2>
+          <div className="space-y-6">
             <div>
-              <div className="text-xs text-[#B0B0B0]">What does BMW stand for?</div>
-              <div className="mt-2 grid grid-cols-1 gap-2">
-                {['Berlin Motor Works', 'Bayerische Motoren Werke', 'Bavarian Machine Works'].map((opt) => (
-                  <button key={opt} onClick={() => setAnswer('q1', opt)} className={getOptionClasses('q1', opt)}>
+              <div className="mb-2 text-sm font-medium text-white">What does BMW stand for?</div>
+              <div className="space-y-2">
+                {[
+                  'Berlin Motor Works', 
+                  'Bayerische Motoren Werke', 
+                  'Bavarian Machine Works'
+                ].map((opt) => (
+                  <button 
+                    key={opt} 
+                    onClick={() => setAnswer('q1', opt)} 
+                    className={getOptionClasses('q1', opt)}
+                  >
                     {opt}
                   </button>
                 ))}
               </div>
             </div>
             <div>
-              <div className="text-xs text-[#B0B0B0]">BMW’s slogan is:</div>
-              <div className="mt-2 grid grid-cols-1 gap-2">
-                {['The Ultimate Driving Machine', 'Power in Motion', 'Drive the Future'].map((opt) => (
-                  <button key={opt} onClick={() => setAnswer('q2', opt)} className={getOptionClasses('q2', opt)}>
+              <div className="mb-2 text-sm font-medium text-white">BMW's iconic slogan is:</div>
+              <div className="space-y-2">
+                {[
+                  'The Ultimate Driving Machine', 
+                  'Power in Motion', 
+                  'Drive the Future'
+                ].map((opt) => (
+                  <button 
+                    key={opt} 
+                    onClick={() => setAnswer('q2', opt)} 
+                    className={getOptionClasses('q2', opt)}
+                  >
                     {opt}
                   </button>
                 ))}
@@ -174,41 +190,71 @@ export default function BMWOverview({ onNavigate, onBackToUnits, onNextUnit }) {
         </section>
 
         {/* (G) Footer Actions */}
-        <div className="mt-6 flex flex-col gap-3">
+        <div className="mt-10 flex flex-col space-y-3">
           <button
-            onClick={() => (onNextUnit ? onNextUnit() : null)}
-            className="w-full rounded-xl bg-[#D4AF37] px-4 py-3 text-sm font-semibold text-black shadow-[0_6px_16px_rgba(0,0,0,0.5)]"
+            onClick={() => onNextUnit?.()}
+            className="w-full rounded-xl bg-[#D4AF37] px-6 py-3.5 text-sm font-semibold text-black shadow-lg transition-transform hover:scale-[1.02] active:scale-95"
           >
-            Next Unit → Models & Series
+            Continue to Models & Series
           </button>
           <button
             onClick={onBackToUnits}
-            className="w-full rounded-xl border border-[#D4AF37] px-4 py-3 text-sm font-medium text-white"
+            className="w-full rounded-xl border border-[#D4AF37]/40 bg-transparent px-6 py-3.5 text-sm font-medium text-white transition-colors hover:border-[#D4AF37] hover:bg-[#D4AF37]/10"
           >
-            Back to Units
+            Back to All Units
           </button>
         </div>
       </div>
 
-      {/* Bottom Navbar */}
-      <nav className="fixed inset-x-0 bottom-0 z-10">
+      {/* Bottom Navigation */}
+      <nav className="fixed inset-x-0 bottom-0 z-10 bg-[#111111]/90 backdrop-blur-md">
         <div className="mx-auto max-w-3xl px-4 pb-4">
-          <div className="mx-auto flex items-center justify-between rounded-2xl border border-white/10 bg-surface/90 px-6 py-3 shadow-card backdrop-blur supports-[backdrop-filter]:bg-surface/70">
-          <button aria-label="Home" onClick={() => onNavigate && onNavigate('home')} className="text-textSecondary hover:text-textPrimary transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5"><path d="M12 3.172 2.25 12h1.5v8.25h5.25v-6H15v6h5.25V12h1.5L12 3.172z"/></svg>
-          </button>
-          <button aria-label="Learn" onClick={() => onNavigate && onNavigate('units')} className="text-textPrimary">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5"><path d="M4.5 5.25h15v1.5h-15v-1.5zm0 6h15v1.5h-15v-1.5zm0 6h15v1.5h-15v-1.5z"/></svg>
-          </button>
-          <button aria-label="AI Assistant" onClick={() => alert('AI is coming soon')} className="text-textSecondary hover:text-textPrimary transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5"><path d="M3 6a3 3 0 013-3h12a3 3 0 013 3v7a3 3 0 01-3 3H9l-4 3v-3H6a3 3 0 01-3-3V6z"/></svg>
-          </button>
-          <button aria-label="Courses" onClick={() => onNavigate && onNavigate('brands')} className="text-textSecondary hover:text-textPrimary transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5"><path d="M4 5.25h7.5V12H4V5.25zm8.5 0H20V12h-7.5V5.25zM4 12.75h7.5V19.5H4v-6.75zM12.5 12.75H20V19.5h-7.5v-6.75z"/></svg>
-          </button>
-          <button aria-label="Profile" onClick={() => onNavigate && onNavigate('profile')} className="text-textSecondary hover:text-textPrimary transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5"><path d="M12 12a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9zm-7.5 9a7.5 7.5 0 0 1 15 0H4.5z"/></svg>
-          </button>
+          <div className="mx-auto flex items-center justify-between rounded-2xl border border-white/10 bg-[#111111] px-6 py-3 shadow-lg">
+            <button 
+              aria-label="Home" 
+              onClick={() => onNavigate?.('home')} 
+              className="rounded-full p-2 text-[#B0B0B0] transition-colors hover:bg-[#1F1F1F] hover:text-white"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
+                <path d="M12 3.172 2.25 12h1.5v8.25h5.25v-6H15v6h5.25V12h1.5L12 3.172z"/>
+              </svg>
+            </button>
+            <button 
+              aria-label="Learn" 
+              onClick={() => onNavigate?.('units')} 
+              className="rounded-full bg-[#D4AF37] p-2 text-black transition-transform hover:scale-105"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
+                <path d="M4.5 5.25h15v1.5h-15v-1.5zm0 6h15v1.5h-15v-1.5zm0 6h15v1.5h-15v-1.5z"/>
+              </svg>
+            </button>
+            <button 
+              aria-label="AI Assistant" 
+              onClick={() => alert('AI Assistant is coming soon')} 
+              className="rounded-full p-2 text-[#B0B0B0] transition-colors hover:bg-[#1F1F1F] hover:text-white"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
+                <path d="M3 6a3 3 0 013-3h12a3 3 0 013 3v7a3 3 0 01-3 3H9l-4 3v-3H6a3 3 0 01-3-3V6z"/>
+              </svg>
+            </button>
+            <button 
+              aria-label="Brands" 
+              onClick={() => onNavigate?.('brands')} 
+              className="rounded-full p-2 text-[#B0B0B0] transition-colors hover:bg-[#1F1F1F] hover:text-white"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
+                <path d="M4 5.25h7.5V12H4V5.25zm8.5 0H20V12h-7.5V5.25zM4 12.75h7.5V19.5H4v-6.75zM12.5 12.75H20V19.5h-7.5v-6.75z"/>
+              </svg>
+            </button>
+            <button 
+              aria-label="Profile" 
+              onClick={() => onNavigate?.('profile')} 
+              className="rounded-full p-2 text-[#B0B0B0] transition-colors hover:bg-[#1F1F1F] hover:text-white"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
+                <path d="M12 12a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9zm-7.5 9a7.5 7.5 0 0 1 15 0H4.5z"/>
+              </svg>
+            </button>
           </div>
         </div>
       </nav>
