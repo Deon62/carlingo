@@ -7,6 +7,8 @@ import Profile from './screens/Profile'
 import AIChat from './screens/AIChat'
 import BMWOverview from './screens/units/BMWOverview'
 import BMWModels from './screens/units/BMWModelsSeriesUnit'
+import BMWDesignAerodynamics from './screens/units/BMWDesignAerodynamicsUnit'
+import BMWEnginePower from './screens/units/BMWEnginePowerUnit'
 
 export default function App() {
   const [screen, setScreen] = useState('home')
@@ -113,6 +115,8 @@ export default function App() {
                 if (brand === 'bmw') {
                   if (unit.title === 'Brand Overview') setScreen('bmwOverview')
                   if (unit.title === 'Models & Series') setScreen('bmwModels')
+                  if (unit.title === 'Design & Aerodynamics') setScreen('bmwDesignAerodynamics')
+                  if (unit.title === 'Engine & Power') setScreen('bmwEnginePower')
                 }
               }}
             />
@@ -150,6 +154,48 @@ export default function App() {
             className="h-full"
           >
             <BMWModels
+              onBackToUnits={() => setScreen('units')}
+              onNavigate={(target) => {
+                if (target === 'home') setScreen('home')
+                else if (target === 'ai') setScreen('ai')
+                else if (target === 'units') setScreen('units')
+                else if (target === 'brands') setScreen('brands')
+                else if (target === 'profile') setScreen('profile')
+              }}
+            />
+          </motion.div>
+        )}
+        {screen === 'bmwDesignAerodynamics' && (
+          <motion.div
+            key="bmwDesignAerodynamics"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.32, ease: 'easeOut' }}
+            className="h-full"
+          >
+            <BMWDesignAerodynamics
+              onBackToUnits={() => setScreen('units')}
+              onNavigate={(target) => {
+                if (target === 'home') setScreen('home')
+                else if (target === 'ai') setScreen('ai')
+                else if (target === 'units') setScreen('units')
+                else if (target === 'brands') setScreen('brands')
+                else if (target === 'profile') setScreen('profile')
+              }}
+            />
+          </motion.div>
+        )}
+        {screen === 'bmwEnginePower' && (
+          <motion.div
+            key="bmwEnginePower"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.32, ease: 'easeOut' }}
+            className="h-full"
+          >
+            <BMWEnginePower
               onBackToUnits={() => setScreen('units')}
               onNavigate={(target) => {
                 if (target === 'home') setScreen('home')
