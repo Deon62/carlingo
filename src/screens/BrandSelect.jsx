@@ -149,7 +149,7 @@ export default function BrandSelect({ onBack, onSelectBrand, onNavigate }) {
           </button>
           <button
             aria-label="AI Assistant"
-            onClick={() => alert('AI is coming soon')}
+            onClick={() => onNavigate && onNavigate('ai')}
             className="text-textSecondary hover:text-textPrimary transition-colors"
           >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5"><path d="M3 6a3 3 0 013-3h12a3 3 0 013 3v7a3 3 0 01-3 3H9l-4 3v-3H6a3 3 0 01-3-3V6z"/></svg>

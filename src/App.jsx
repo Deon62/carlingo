@@ -4,6 +4,7 @@ import HomeScreen from './screens/HomeScreen'
 import BrandSelect from './screens/BrandSelect'
 import UnitsPage from './screens/UnitsPage'
 import Profile from './screens/Profile'
+import AIChat from './screens/AIChat'
 import BMWOverview from './screens/units/BMWOverview'
 import BMWModels from './screens/units/BMWModelsSeriesUnit'
 
@@ -11,6 +12,21 @@ export default function App() {
   const [screen, setScreen] = useState('home')
   const [selectedBrand, setSelectedBrand] = useState(null)
   const [selectedUnit, setSelectedUnit] = useState(null)
+  const [previousScreen, setPreviousScreen] = useState(null)
+
+  const navigateTo = (newScreen) => {
+    setPreviousScreen(screen);
+    setScreen(newScreen);
+  };
+
+  const navigateBack = () => {
+    if (previousScreen) {
+      setScreen(previousScreen);
+      setPreviousScreen(null);
+    } else {
+      setScreen('home');
+    }
+  };
 
   return (
     <div className="min-h-full w-full bg-background">
@@ -24,7 +40,7 @@ export default function App() {
             transition={{ duration: 0.32, ease: 'easeOut' }}
             className="h-full"
           >
-            <HomeScreen onGetStarted={() => setScreen('brands')} />
+            <HomeScreen onGetStarted={() => navigateTo('brands')} />
           </motion.div>
         )}
         {screen === 'brands' && (
@@ -37,13 +53,34 @@ export default function App() {
             className="h-full"
           >
             <BrandSelect
-              onBack={() => setScreen('home')}
+              onBack={navigateBack}
               onSelectBrand={(brand) => {
-                setSelectedBrand(brand)
-                setScreen('units')
+                setSelectedBrand(brand);
+                navigateTo('units');
               }}
               onNavigate={(target) => {
+                if (target === 'ai') {
+                  navigateTo('ai');
+                } else {
+                  navigateTo(target);
+                }
+              }}
+            />
+          </motion.div>
+        )}
+        {screen === 'ai' && (
+          <motion.div
+            key="ai"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.32, ease: 'easeOut' }}
+            className="h-full"
+          >
+            <AIChat
+              onNavigate={(target) => {
                 if (target === 'home') setScreen('home')
+                else if (target === 'ai') setScreen('ai')
                 else if (target === 'units') setScreen('units')
                 else if (target === 'brands') setScreen('brands')
                 else if (target === 'profile') setScreen('profile')
@@ -65,6 +102,7 @@ export default function App() {
               onBack={() => setScreen('brands')}
               onNavigate={(target) => {
                 if (target === 'home') setScreen('home')
+                else if (target === 'ai') setScreen('ai')
                 else if (target === 'units') setScreen('units')
                 else if (target === 'brands') setScreen('brands')
                 else if (target === 'profile') setScreen('profile')
@@ -94,6 +132,7 @@ export default function App() {
               onNextUnit={() => setScreen('bmwModels')}
               onNavigate={(target) => {
                 if (target === 'home') setScreen('home')
+                else if (target === 'ai') setScreen('ai')
                 else if (target === 'units') setScreen('units')
                 else if (target === 'brands') setScreen('brands')
                 else if (target === 'profile') setScreen('profile')
@@ -114,6 +153,7 @@ export default function App() {
               onBackToUnits={() => setScreen('units')}
               onNavigate={(target) => {
                 if (target === 'home') setScreen('home')
+                else if (target === 'ai') setScreen('ai')
                 else if (target === 'units') setScreen('units')
                 else if (target === 'brands') setScreen('brands')
                 else if (target === 'profile') setScreen('profile')
@@ -133,6 +173,7 @@ export default function App() {
             <Profile
               onNavigate={(target) => {
                 if (target === 'home') setScreen('home')
+                else if (target === 'ai') setScreen('ai')
                 else if (target === 'units') setScreen('units')
                 else if (target === 'brands') setScreen('brands')
                 else if (target === 'profile') setScreen('profile')
