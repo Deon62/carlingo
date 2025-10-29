@@ -1,4 +1,14 @@
 import React, { useMemo, useState } from 'react'
+import bmwLogo from '../assets/bmw.png'
+import benzLogo from '../assets/benz.png'
+import audiLogo from '../assets/audi.png'
+import jaguarLogo from '../assets/Jaguar.png'
+import lamboLogo from '../assets/lambo.png'
+import porscheLogo from '../assets/porsche.png'
+import toyotaLogo from '../assets/toyota.png'
+import wagenLogo from '../assets/wagen.png'
+import hondaLogo from '../assets/honda.png'
+import nissanLogo from '../assets/nissan.jpg'
 
 const BRANDS = [
   'BMW',
@@ -44,7 +54,21 @@ export default function BrandSelect({ onBack, onSelectBrand, onNavigate }) {
 
   const handleSelect = (brandName) => {
     console.log('Selected brand:', brandName)
-    if (onSelectBrand) onSelectBrand(brandName)
+    const brandObj = {
+      name: brandName,
+      logo:
+        brandName === 'BMW' ? bmwLogo :
+        brandName === 'Mercedes-Benz' ? benzLogo :
+        brandName === 'Audi' ? audiLogo :
+        brandName === 'Jaguar' ? jaguarLogo :
+        brandName === 'Lamborghini' ? lamboLogo :
+        brandName === 'Porsche' ? porscheLogo :
+        brandName === 'Toyota' ? toyotaLogo :
+        brandName === 'Volkswagen' ? wagenLogo :
+        brandName === 'Honda' ? hondaLogo :
+        brandName === 'Nissan' ? nissanLogo : ''
+    }
+    if (onSelectBrand) onSelectBrand(brandObj)
   }
 
   return (
@@ -69,7 +93,17 @@ export default function BrandSelect({ onBack, onSelectBrand, onNavigate }) {
               onClick={() => handleSelect(name)}
               className="group overflow-hidden rounded-xl bg-surface py-5 px-3 shadow-card transition-transform duration-150 active:scale-[0.98]"
             >
-              <div className="flex h-full min-h-16 items-center justify-center">
+              <div className="flex h-full min-h-16 flex-col items-center justify-center gap-2">
+                {name === 'BMW' && (<img src={bmwLogo} alt="BMW" className="h-6 w-6 object-contain" />)}
+                {name === 'Mercedes-Benz' && (<img src={benzLogo} alt="Mercedes-Benz" className="h-6 w-6 object-contain" />)}
+                {name === 'Audi' && (<img src={audiLogo} alt="Audi" className="h-6 w-6 object-contain" />)}
+                {name === 'Jaguar' && (<img src={jaguarLogo} alt="Jaguar" className="h-6 w-6 object-contain" />)}
+                {name === 'Lamborghini' && (<img src={lamboLogo} alt="Lamborghini" className="h-6 w-6 object-contain" />)}
+                {name === 'Porsche' && (<img src={porscheLogo} alt="Porsche" className="h-6 w-6 object-contain" />)}
+                {name === 'Toyota' && (<img src={toyotaLogo} alt="Toyota" className="h-6 w-6 object-contain" />)}
+                {name === 'Volkswagen' && (<img src={wagenLogo} alt="Volkswagen" className="h-6 w-6 object-contain" />)}
+                {name === 'Honda' && (<img src={hondaLogo} alt="Honda" className="h-6 w-6 object-contain" />)}
+                {name === 'Nissan' && (<img src={nissanLogo} alt="Nissan" className="h-6 w-6 object-contain" />)}
                 <span className="text-[13px] font-medium text-textPrimary text-center leading-tight">
                   {name}
                 </span>

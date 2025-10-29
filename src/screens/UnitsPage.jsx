@@ -15,9 +15,10 @@ const UNITS = [
   { title: 'Future Vision', description: 'What’s next for this brand — innovation and sustainability.', icon: Sparkles },
 ]
 
-export default function UnitsPage({ brand = { name: 'Brand', logo: '' }, onBack, onNavigate }) {
+export default function UnitsPage({ brand = { name: 'Brand', logo: '' }, onBack, onNavigate, onOpenUnit }) {
   const handleSelect = (unit) => {
     console.log('Selected Unit:', unit.title)
+    if (onOpenUnit) onOpenUnit(unit)
   }
 
   return (
