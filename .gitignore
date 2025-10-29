@@ -1,0 +1,13 @@
+#add node_modules to the ignore list
+node_modules/
+#add dist to the ignore list
+dist/
+#add build to the ignore list
+build/
+#add .env to the ignore list
+.env
+#add .env.local to the ignore list
+.env.local
+#add .env.development.local to the ignore list
+.env.development.local
+#add .env.test.local to the ignore list

@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global baseline */
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background-color: theme('colors.background');
+  color: theme('colors.textPrimary');
+}
+
+.tap-highlight-transparent {
+  -webkit-tap-highlight-color: transparent;
+}
+
+
