@@ -3,11 +3,10 @@ import logo from '../assets/logo.png'
 
 export default function HomeScreen({ onGetStarted }) {
   return (
-    <div className="min-h-screen bg-surface text-textPrimary">
-      <div className="mx-auto flex min-h-screen max-w-2xl flex-col items-center justify-center px-6 text-center">
-        <img src={logo} alt="CarLingo" className="mx-auto h-16 w-16 object-contain" />
-        <h1 className="mt-3 text-4xl font-bold tracking-tight">CarLingo</h1>
-        <p className="mt-2 text-sm text-textSecondary">Learn cars like you learn languages vroom by vroom</p>
+    <div className="h-screen bg-surface text-textPrimary">
+      <div className="mx-auto flex h-full max-w-2xl flex-col items-center justify-center px-6 text-center">
+        <h1 className="text-5xl font-bold tracking-tight sm:text-6xl">CarLingo</h1>
+        <p className="mt-3 text-base text-textSecondary sm:text-lg">Learn cars like you learn languages vroom by vroom</p>
 
         <button
           onClick={onGetStarted}
