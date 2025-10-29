@@ -5,7 +5,7 @@ import BrandSelect from './screens/BrandSelect'
 import UnitsPage from './screens/UnitsPage'
 import Profile from './screens/Profile'
 import BMWOverview from './screens/units/BMWOverview'
-import BMWModels from './screens/units/BMWModels'
+import BMWModels from './screens/units/BMWModelsSeriesUnit'
 
 export default function App() {
   const [screen, setScreen] = useState('home')
