@@ -83,8 +83,9 @@ export default function Profile({ onNavigate }) {
       </div>
 
       {/* Bottom Navbar */}
-      <nav className="fixed inset-x-0 bottom-0 z-10 border-t border-white/10 bg-surface/90 backdrop-blur supports-[backdrop-filter]:bg-surface/70">
-        <div className="mx-auto flex max-w-3xl items-center justify-between px-8 py-3">
+      <nav className="fixed inset-x-0 bottom-0 z-10">
+        <div className="mx-auto max-w-3xl px-4 pb-4">
+          <div className="mx-auto flex items-center justify-between rounded-2xl border border-white/10 bg-surface/90 px-6 py-3 shadow-card backdrop-blur supports-[backdrop-filter]:bg-surface/70">
           <button
             aria-label="Home"
             onClick={() => onNavigate && onNavigate('home')}
@@ -113,6 +114,7 @@ export default function Profile({ onNavigate }) {
           >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5"><path d="M12 12a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9zm-7.5 9a7.5 7.5 0 0 1 15 0H4.5z"/></svg>
           </button>
+          </div>
         </div>
       </nav>
     </div>
