@@ -10,9 +10,9 @@ const UNITS = [
   { title: 'Interior & Technology', description: 'Explore comfort, materials, and digital systems.', icon: MonitorCog },
   { title: 'Performance Modes', description: 'See how Eco, Sport, and Comfort modes work.', icon: Settings },
   { title: 'Electric & Hybrid Models', description: 'Step into the brand’s future of electrification.', icon: BatteryCharging },
-  { title: 'Safety & Assistance', description: 'Learn about the safety and driver-assist systems.', icon: Shield },
+  { title: 'Safety & Assistance', description: 'Learn about the safety and driver assist systems.', icon: Shield },
   { title: 'Racing Heritage', description: 'A glimpse into the brand’s motorsport legacy.', icon: Flag },
-  { title: 'Future Vision', description: 'What’s next for this brand — innovation and sustainability.', icon: Sparkles },
+  { title: 'Future Vision', description: 'What’s next for this brand  innovation and sustainability.', icon: Sparkles },
 ]
 
 export default function UnitsPage({ brand = { name: 'Brand', logo: '' }, onBack, onNavigate, onOpenUnit }) {

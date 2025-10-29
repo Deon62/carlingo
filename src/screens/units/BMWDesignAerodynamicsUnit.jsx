@@ -256,7 +256,7 @@ export default function BMWDesignAerodynamicsUnit({ onNavigate, onBackToUnits })
             className="w-full rounded-xl px-4 py-3 text-sm font-semibold"
             style={{ backgroundColor: COLORS.accent, color: COLORS.background, boxShadow: '0 6px 16px rgba(0,0,0,0.5)' }}
           >
-            Next Unit - Technology & Innovation
+            Next Unit - Interior & Technology 
           </button>
           <button
             onClick={() => { console.log('Back to Units'); onBackToUnits && onBackToUnits() }}
