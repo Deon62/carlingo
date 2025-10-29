@@ -16,7 +16,7 @@ const COLORS = {
 // Content is data-driven for easy editing
 export const bmwEnginePowerContent = {
   hero: {
-    title: 'BMW - Engine & Power',
+    title: 'BMW  Engine & Power',
     subtitle: 'Precision engineering beneath the hood.',
     intro:
       'From inline-sixes to hybrid systems, BMW\'s engines are designed for balance, response, and performance. Every detail - from turbocharging to exhaust tuning - contributes to the brand\'s signature driving feel.',

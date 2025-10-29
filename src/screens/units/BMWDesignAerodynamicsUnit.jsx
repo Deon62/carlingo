@@ -16,7 +16,7 @@ const COLORS = {
 // Content is data-driven for easy editing
 export const bmwDesignAerodynamicsContent = {
   hero: {
-    title: 'BMW - Design & Aerodynamics',
+    title: 'BMW  Design & Aerodynamics',
     subtitle: 'Sculpted precision that moves even when standing still.',
     intro:
       'BMW design balances emotion with engineering. Every curve, crease, and contour has a purpose - from cooling air to visual flow.',
