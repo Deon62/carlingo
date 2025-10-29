@@ -5,6 +5,7 @@ import BrandSelect from './screens/BrandSelect'
 import UnitsPage from './screens/UnitsPage'
 import Profile from './screens/Profile'
 import BMWOverview from './screens/units/BMWOverview'
+import BMWModels from './screens/units/BMWModels'
 
 export default function App() {
   const [screen, setScreen] = useState('home')
@@ -70,8 +71,10 @@ export default function App() {
               }}
               onOpenUnit={(unit) => {
                 setSelectedUnit(unit)
-                if ((selectedBrand?.name || '').toLowerCase() === 'bmw' && unit.title === 'Brand Overview') {
-                  setScreen('bmwOverview')
+                const brand = (selectedBrand?.name || '').toLowerCase()
+                if (brand === 'bmw') {
+                  if (unit.title === 'Brand Overview') setScreen('bmwOverview')
+                  if (unit.title === 'Models & Series') setScreen('bmwModels')
                 }
               }}
             />
@@ -87,6 +90,27 @@ export default function App() {
             className="h-full"
           >
             <BMWOverview
+              onBackToUnits={() => setScreen('units')}
+              onNextUnit={() => setScreen('bmwModels')}
+              onNavigate={(target) => {
+                if (target === 'home') setScreen('home')
+                else if (target === 'units') setScreen('units')
+                else if (target === 'brands') setScreen('brands')
+                else if (target === 'profile') setScreen('profile')
+              }}
+            />
+          </motion.div>
+        )}
+        {screen === 'bmwModels' && (
+          <motion.div
+            key="bmwModels"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.32, ease: 'easeOut' }}
+            className="h-full"
+          >
+            <BMWModels
               onBackToUnits={() => setScreen('units')}
               onNavigate={(target) => {
                 if (target === 'home') setScreen('home')

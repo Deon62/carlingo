@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import bmwLogo from '../../assets/bmw.png'
 
-export default function BMWOverview({ onNavigate, onBackToUnits }) {
+export default function BMWOverview({ onNavigate, onBackToUnits, onNextUnit }) {
   const [answers, setAnswers] = useState({})
 
   const setAnswer = (qKey, option) => {
@@ -176,10 +176,10 @@ export default function BMWOverview({ onNavigate, onBackToUnits }) {
         {/* (G) Footer Actions */}
         <div className="mt-6 flex flex-col gap-3">
           <button
-            onClick={() => console.log('Next Unit → Engine & Power')}
+            onClick={() => (onNextUnit ? onNextUnit() : null)}
             className="w-full rounded-xl bg-[#D4AF37] px-4 py-3 text-sm font-semibold text-black shadow-[0_6px_16px_rgba(0,0,0,0.5)]"
           >
-            Next Unit → Engine & Power
+            Next Unit → Models & Series
           </button>
           <button
             onClick={onBackToUnits}
