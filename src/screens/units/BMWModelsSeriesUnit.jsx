@@ -4,6 +4,41 @@ import bmw1s1 from '../../assets/bmw/1s1.png';
 import bmw1s2 from '../../assets/bmw/1s2.png';
 import bmw1s3 from '../../assets/bmw/1s3.png';
 
+// 2 Series images
+import bmw2s from '../../assets/bmw/2s.png';
+import bmw2s1 from '../../assets/bmw/2s1.png';
+import bmw2s2 from '../../assets/bmw/2s2.png';
+
+// 3 Series images
+import bmw3s from '../../assets/bmw/3s.png';
+import bmw3s1 from '../../assets/bmw/3s1.png';
+import bmw3s2 from '../../assets/bmw/3s2.png';
+
+// 4 Series images
+import bmw4s from '../../assets/bmw/4s.png';
+import bmw4s1 from '../../assets/bmw/4s1.png';
+import bmw4s2 from '../../assets/bmw/4s2.png';
+
+// 5 Series images
+import bmw5s from '../../assets/bmw/5s.png';
+import bmw5s1 from '../../assets/bmw/5s1.png';
+import bmw5s2 from '../../assets/bmw/5s2.png';
+
+// 6 Series images
+import bmw6s from '../../assets/bmw/6s.png';
+import bmw6s1 from '../../assets/bmw/6s1.png';
+import bmw6s2 from '../../assets/bmw/6s2.png';
+
+// 7 Series images
+import bmw7s from '../../assets/bmw/7s.png';
+import bmw7s1 from '../../assets/bmw/7s1.png';
+import bmw7s2 from '../../assets/bmw/7s2.png';
+
+// 8 Series images
+import bmw8s from '../../assets/bmw/8s.png';
+import bmw8s1 from '../../assets/bmw/8s1.png';
+import bmw8s2 from '../../assets/bmw/8s2.png';
+
 // Palette aligned to BMW Overview unit
 const COLORS = {
   background: '#000000',
@@ -307,9 +342,62 @@ export default function BMWModelsSeriesUnit({ onNavigate, onBackToUnits, onNextU
                     <div className="border-t px-4 py-3" style={{ borderColor: COLORS.divider }}>
                       <p className="text-sm" style={{ color: COLORS.subtext }}>{s.details}</p>
                       <div className="mt-3 grid grid-cols-3 gap-2">
-                        <img src={s.key === 'series1' ? bmw1s1 : ''} alt="BMW 1 Series 1" className="h-16 w-full rounded-lg object-cover" />
-                        <img src={s.key === 'series1' ? bmw1s2 : ''} alt="BMW 1 Series 2" className="h-16 w-full rounded-lg object-cover" />
-                        <img src={s.key === 'series1' ? bmw1s3 : ''} alt="BMW 1 Series 3" className="h-16 w-full rounded-lg object-cover" />
+                        {s.key === 'series1' && (
+                          <>
+                            <img src={bmw1s1} alt="BMW 1 Series 1" className="h-16 w-full rounded-lg object-cover" />
+                            <img src={bmw1s2} alt="BMW 1 Series 2" className="h-16 w-full rounded-lg object-cover" />
+                            <img src={bmw1s3} alt="BMW 1 Series 3" className="h-16 w-full rounded-lg object-cover" />
+                          </>
+                        )}
+                        {s.key === 'series2' && (
+                          <>
+                            <img src={bmw2s} alt="BMW 2 Series 1" className="h-16 w-full rounded-lg object-cover" />
+                            <img src={bmw2s1} alt="BMW 2 Series 2" className="h-16 w-full rounded-lg object-cover" />
+                            <img src={bmw2s2} alt="BMW 2 Series 3" className="h-16 w-full rounded-lg object-cover" />
+                          </>
+                        )}
+                        {s.key === 'series3' && (
+                          <>
+                            <img src={bmw3s} alt="BMW 3 Series 1" className="h-16 w-full rounded-lg object-cover" />
+                            <img src={bmw3s1} alt="BMW 3 Series 2" className="h-16 w-full rounded-lg object-cover" />
+                            <img src={bmw3s2} alt="BMW 3 Series 3" className="h-16 w-full rounded-lg object-cover" />
+                          </>
+                        )}
+                        {s.key === 'series4' && (
+                          <>
+                            <img src={bmw4s} alt="BMW 4 Series 1" className="h-16 w-full rounded-lg object-cover" />
+                            <img src={bmw4s1} alt="BMW 4 Series 2" className="h-16 w-full rounded-lg object-cover" />
+                            <img src={bmw4s2} alt="BMW 4 Series 3" className="h-16 w-full rounded-lg object-cover" />
+                          </>
+                        )}
+                        {s.key === 'series5' && (
+                          <>
+                            <img src={bmw5s} alt="BMW 5 Series 1" className="h-16 w-full rounded-lg object-cover" />
+                            <img src={bmw5s1} alt="BMW 5 Series 2" className="h-16 w-full rounded-lg object-cover" />
+                            <img src={bmw5s2} alt="BMW 5 Series 3" className="h-16 w-full rounded-lg object-cover" />
+                          </>
+                        )}
+                        {s.key === 'series6' && (
+                          <>
+                            <img src={bmw6s} alt="BMW 6 Series 1" className="h-16 w-full rounded-lg object-cover" />
+                            <img src={bmw6s1} alt="BMW 6 Series 2" className="h-16 w-full rounded-lg object-cover" />
+                            <img src={bmw6s2} alt="BMW 6 Series 3" className="h-16 w-full rounded-lg object-cover" />
+                          </>
+                        )}
+                        {s.key === 'series7' && (
+                          <>
+                            <img src={bmw7s} alt="BMW 7 Series 1" className="h-16 w-full rounded-lg object-cover" />
+                            <img src={bmw7s1} alt="BMW 7 Series 2" className="h-16 w-full rounded-lg object-cover" />
+                            <img src={bmw7s2} alt="BMW 7 Series 3" className="h-16 w-full rounded-lg object-cover" />
+                          </>
+                        )}
+                        {s.key === 'series8' && (
+                          <>
+                            <img src={bmw8s} alt="BMW 8 Series 1" className="h-16 w-full rounded-lg object-cover" />
+                            <img src={bmw8s1} alt="BMW 8 Series 2" className="h-16 w-full rounded-lg object-cover" />
+                            <img src={bmw8s2} alt="BMW 8 Series 3" className="h-16 w-full rounded-lg object-cover" />
+                          </>
+                        )}
                       </div>
                       <ul className="mt-3 space-y-1 text-sm" style={{ color: COLORS.subtext }}>
                         {s.bullets.map((b) => (
