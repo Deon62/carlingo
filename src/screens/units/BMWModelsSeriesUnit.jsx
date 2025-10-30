@@ -1,5 +1,8 @@
 import React, { useMemo, useState } from 'react'
 import bmwLogo from '../../assets/bmw.png'
+import bmw1s1 from '../../assets/bmw/1s1.png';
+import bmw1s2 from '../../assets/bmw/1s2.png';
+import bmw1s3 from '../../assets/bmw/1s3.png';
 
 // Palette aligned to BMW Overview unit
 const COLORS = {
@@ -303,11 +306,10 @@ export default function BMWModelsSeriesUnit({ onNavigate, onBackToUnits, onNextU
                   {open && (
                     <div className="border-t px-4 py-3" style={{ borderColor: COLORS.divider }}>
                       <p className="text-sm" style={{ color: COLORS.subtext }}>{s.details}</p>
-                      {/* Image placeholder slots – swap with real images later */}
                       <div className="mt-3 grid grid-cols-3 gap-2">
-                        <div className="h-16 rounded-lg" style={{ backgroundColor: 'rgba(255,255,255,0.05)' }} />
-                        <div className="h-16 rounded-lg" style={{ backgroundColor: 'rgba(255,255,255,0.05)' }} />
-                        <div className="h-16 rounded-lg" style={{ backgroundColor: 'rgba(255,255,255,0.05)' }} />
+                        <img src={s.key === 'series1' ? bmw1s1 : ''} alt="BMW 1 Series 1" className="h-16 w-full rounded-lg object-cover" />
+                        <img src={s.key === 'series1' ? bmw1s2 : ''} alt="BMW 1 Series 2" className="h-16 w-full rounded-lg object-cover" />
+                        <img src={s.key === 'series1' ? bmw1s3 : ''} alt="BMW 1 Series 3" className="h-16 w-full rounded-lg object-cover" />
                       </div>
                       <ul className="mt-3 space-y-1 text-sm" style={{ color: COLORS.subtext }}>
                         {s.bullets.map((b) => (
