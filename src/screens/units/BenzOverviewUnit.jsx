@@ -98,6 +98,7 @@ export default function BenzOverviewUnit({ onNavigate, onBackToUnits, onNextUnit
   const [activeSection, setActiveSection] = useState(null)
 
   const setAnswer = (qKey, option) => {
+    if (answers[qKey] !== undefined) return; // Prevent changing answers after selection
     setAnswers(prev => ({ ...prev, [qKey]: option }))
   }
 
@@ -105,11 +106,18 @@ export default function BenzOverviewUnit({ onNavigate, onBackToUnits, onNextUnit
 
   const getOptionClasses = (qKey, option, correctIndex) => {
     const selected = isSelected(qKey, option)
-    const isCorrect = answers[qKey] === qKey ? correctIndex === benzOverviewContent.quiz[qKey].correct : false
+    const isCorrect = option === correctIndex
     const base = 'w-full rounded-xl border px-5 py-3.5 text-left text-sm transition-colors duration-200'
-    if (!selected) return `${base} border-[#1F1F1F] bg-[#111111] text-white hover:border-[#D4AF37]/40`
-    if (isCorrect) return `${base} border-[#D4AF37] bg-[#111111]/90 text-white`
-    return `${base} border-[#B22222] bg-[#111111]/90 text-white`
+    
+    if (answers[qKey] !== undefined) {
+      // After selection
+      if (isCorrect) return `${base} border-[#D4AF37] bg-[#1A1A1A] text-[#D4AF37]`
+      if (selected) return `${base} border-[#B22222] bg-[#1A1A1A] text-[#B22222] line-through`
+      return `${base} border-[#1F1F1F] bg-[#111111] text-[#666666]`
+    }
+    
+    // Before selection
+    return `${base} border-[#1F1F1F] bg-[#111111] text-white hover:border-[#D4AF37]/40`
   }
 
   const toggleSection = (key) => {
@@ -204,11 +212,18 @@ export default function BenzOverviewUnit({ onNavigate, onBackToUnits, onNextUnit
                       key={`opt-${qIndex}-${optIndex}`}
                       onClick={() => setAnswer(`q${qIndex}`, optIndex)}
                       className={getOptionClasses(`q${qIndex}`, optIndex, q.correct)}
+                      disabled={answers[`q${qIndex}`] !== undefined}
                     >
                       {opt}
                     </button>
                   ))}
                 </div>
+                {answers[`q${qIndex}`] !== undefined && (
+                  <p className="text-xs text-[#D4AF37] mt-2">
+                    {answers[`q${qIndex}`] === q.correct ? '✓ ' : '✗ '}
+                    {q.explanation || (answers[`q${qIndex}`] === q.correct ? 'Correct!' : 'Incorrect. ' + (q.options[q.correct] ? `The correct answer is: ${q.options[q.correct]}` : ''))}
+                  </p>
+                )}
               </div>
             ))}
           </div>

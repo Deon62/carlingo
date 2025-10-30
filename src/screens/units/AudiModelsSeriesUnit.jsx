@@ -5,7 +5,7 @@ const audiModelsSeriesContent = {
   hero: {
     title: 'Audi Models & Series',
     subtitle: 'From Classic Comfort to Electric Precision',
-    intro: 'Discover Audi\'s dynamic model range — from refined sedans to electrifying sports cars.',
+    intro: 'Discover Audi\'s dynamic model range  from refined sedans to electrifying sports cars.',
     unitProgress: 'Unit 2 of 10'
   },
   context: {
