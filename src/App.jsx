@@ -9,6 +9,7 @@ import BMWOverview from './screens/units/BMWOverview'
 import BMWModels from './screens/units/BMWModelsSeriesUnit'
 import BMWDesignAerodynamics from './screens/units/BMWDesignAerodynamicsUnit'
 import BMWEnginePower from './screens/units/BMWEnginePowerUnit'
+import BenzOverviewUnit from './screens/units/BenzOverviewUnit'
 
 export default function App() {
   const [screen, setScreen] = useState('home')
@@ -112,11 +113,15 @@ export default function App() {
               onOpenUnit={(unit) => {
                 setSelectedUnit(unit)
                 const brand = (selectedBrand?.name || '').toLowerCase()
-                if (brand === 'bmw') {
+                const brandName = (selectedBrand?.name || '').toLowerCase()
+                if (brandName === 'bmw') {
                   if (unit.title === 'Brand Overview') setScreen('bmwOverview')
                   if (unit.title === 'Models & Series') setScreen('bmwModels')
                   if (unit.title === 'Design & Aerodynamics') setScreen('bmwDesignAerodynamics')
                   if (unit.title === 'Engine & Power') setScreen('bmwEnginePower')
+                } else if (brandName === 'mercedes-benz' || brandName === 'mercedes') {
+                  if (unit.title === 'Brand Overview') setScreen('benzOverview')
+                  // Add more unit mappings for Mercedes-Benz as needed
                 }
               }}
             />
@@ -177,6 +182,28 @@ export default function App() {
           >
             <BMWDesignAerodynamics
               onBackToUnits={() => setScreen('units')}
+              onNavigate={(target) => {
+                if (target === 'home') setScreen('home')
+                else if (target === 'ai') setScreen('ai')
+                else if (target === 'units') setScreen('units')
+                else if (target === 'brands') setScreen('brands')
+                else if (target === 'profile') setScreen('profile')
+              }}
+            />
+          </motion.div>
+        )}
+        {screen === 'benzOverview' && (
+          <motion.div
+            key="benzOverview"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.32, ease: 'easeOut' }}
+            className="h-full"
+          >
+            <BenzOverviewUnit
+              onBackToUnits={() => setScreen('units')}
+              onNextUnit={() => setScreen('benzModels')}
               onNavigate={(target) => {
                 if (target === 'home') setScreen('home')
                 else if (target === 'ai') setScreen('ai')
