@@ -3,12 +3,12 @@ import benzLogo from '../../assets/benz.png'
 
 const benzOverviewContent = {
   hero: {
-    title: "Mercedes-Benz — Brand Overview",
+    title: "Mercedes Benz Brand Overview",
     subtitle: "The Best or Nothing",
-    intro: "Mercedes-Benz, a division of Daimler AG, is a German luxury automotive brand known for its premium vehicles, buses, and trucks. Since 1926, it has set the benchmark for automotive luxury, innovation, and performance.",
+    intro: "Mercedes Benz, a division of Daimler AG, is a German luxury automotive brand known for its premium vehicles, buses, and trucks. Since 1926, it has set the benchmark for automotive luxury, innovation, and performance.",
     progress: "Unit 1 of 10"
   },
-  context: "Mercedes-Benz represents the pinnacle of German automotive engineering, combining luxury, safety, and cutting-edge technology. With a global presence and a reputation for excellence, Mercedes-Benz continues to shape the future of mobility while maintaining its heritage of quality and prestige.",
+  context: "Mercedes Benz represents the pinnacle of German automotive engineering, combining luxury, safety, and cutting-edge technology. With a global presence and a reputation for excellence, Mercedes-Benz continues to shape the future of mobility while maintaining its heritage of quality and prestige.",
   cards: [
     {
       title: "History & Legacy",

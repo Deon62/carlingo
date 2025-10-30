@@ -10,6 +10,9 @@ import BMWModels from './screens/units/BMWModelsSeriesUnit'
 import BMWDesignAerodynamics from './screens/units/BMWDesignAerodynamicsUnit'
 import BMWEnginePower from './screens/units/BMWEnginePowerUnit'
 import BenzOverviewUnit from './screens/units/BenzOverviewUnit'
+import BenzModelsSeriesUnit from './screens/units/BenzModelsSeriesUnit'
+import AudiOverviewUnit from './screens/units/AudiOverviewUnit'
+import AudiModelsSeriesUnit from './screens/units/AudiModelsSeriesUnit'
 
 export default function App() {
   const [screen, setScreen] = useState('home')
@@ -121,7 +124,11 @@ export default function App() {
                   if (unit.title === 'Engine & Power') setScreen('bmwEnginePower')
                 } else if (brandName === 'mercedes-benz' || brandName === 'mercedes') {
                   if (unit.title === 'Brand Overview') setScreen('benzOverview')
+                  if (unit.title === 'Models & Series') setScreen('benzModels')
                   // Add more unit mappings for Mercedes-Benz as needed
+                } else if (brandName === 'audi') {
+                  if (unit.title === 'Brand Overview') setScreen('audiOverview')
+                  if (unit.title === 'Models & Series') setScreen('audiModels')
                 }
               }}
             />
@@ -214,6 +221,50 @@ export default function App() {
             />
           </motion.div>
         )}
+        {screen === 'benzModels' && (
+          <motion.div
+            key="benzModels"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.32, ease: 'easeOut' }}
+            className="h-full"
+          >
+            <BenzModelsSeriesUnit
+              onBackToUnits={() => setScreen('units')}
+              onNextUnit={() => setScreen('benzEnginePower')}
+              onNavigate={(target) => {
+                if (target === 'home') setScreen('home')
+                else if (target === 'ai') setScreen('ai')
+                else if (target === 'units') setScreen('units')
+                else if (target === 'brands') setScreen('brands')
+                else if (target === 'profile') setScreen('profile')
+              }}
+            />
+          </motion.div>
+        )}
+        {screen === 'audiModels' && (
+          <motion.div
+            key="audiModels"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.32, ease: 'easeOut' }}
+            className="h-full"
+          >
+            <AudiModelsSeriesUnit
+              onBackToUnits={() => setScreen('units')}
+              onNextUnit={() => setScreen('audiEnginePower')}
+              onNavigate={(target) => {
+                if (target === 'home') setScreen('home')
+                else if (target === 'ai') setScreen('ai')
+                else if (target === 'units') setScreen('units')
+                else if (target === 'brands') setScreen('brands')
+                else if (target === 'profile') setScreen('profile')
+              }}
+            />
+          </motion.div>
+        )}
         {screen === 'bmwEnginePower' && (
           <motion.div
             key="bmwEnginePower"
@@ -226,6 +277,28 @@ export default function App() {
             <BMWEnginePower
               onBackToUnits={() => setScreen('units')}
               onNextUnit={() => setScreen('bmwDesignAerodynamics')}
+              onNavigate={(target) => {
+                if (target === 'home') setScreen('home')
+                else if (target === 'ai') setScreen('ai')
+                else if (target === 'units') setScreen('units')
+                else if (target === 'brands') setScreen('brands')
+                else if (target === 'profile') setScreen('profile')
+              }}
+            />
+          </motion.div>
+        )}
+        {screen === 'audiOverview' && (
+          <motion.div
+            key="audiOverview"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.32, ease: 'easeOut' }}
+            className="h-full"
+          >
+            <AudiOverviewUnit
+              onBackToUnits={() => setScreen('units')}
+              onNextUnit={() => setScreen('audiModels')}
               onNavigate={(target) => {
                 if (target === 'home') setScreen('home')
                 else if (target === 'ai') setScreen('ai')

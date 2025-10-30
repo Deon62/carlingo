@@ -33,7 +33,7 @@ export const bmwModelsSeriesContent = {
       title: '1 Series',
       summary: 'Compact hatchback offering the BMW feel in a smaller package.',
       details:
-        'Years: 2004–present. Earlier generations were RWD; current versions are primarily FWD-based. Ideal for city living without sacrificing driving fun.',
+        'Years: 2004–present. Earlier generations were RWD; current versions are primarily FWD based. Ideal for city living without sacrificing driving fun.',
       bullets: [
         { label: 'Years active', value: '2004–present' },
         { label: 'Notable models', value: '116i, 118i, M135i' },
